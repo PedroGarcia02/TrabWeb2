@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-4">Nomes</h1>
+        <ul class="space-y-2" style="padding-bottom: 25px;">
+            <% tasks.forEach(task => { %>
+                <li class="flex justify-between items-center p-2 bg-gray-200 rounded <%= task.completed ? 'line-through text-gray-500' : '' %>">
+                    <span><%= task.createdAt %></span>
+                    <span><%= task.name %></span>
+                    <span><%= task.completed ? task.completedAt : '' %></span>
+                </li>
+            <% }); %>
+        </ul>
+        <div class="flex justify-between items-center p-2 bg-gray-200 rounded">
+            <a href="/?ordem=desc">Ordem Desc</a> 
+            <a href="/">Sem Filtro</a> 
+            <a href="/?ordem=asc">Ordem Asc</a>
+        </div>
+        <div class="flex justify-between items-center p-2 bg-gray-200 rounded">
+            <a href="/cadastro">cadastroFake</a> 
+            <a href="/welcome">Boas Vindas</a>
+            <a href="/welcome/Pedro">Boas Vindas custom</a>
+        </div>
+    </div>
+</body>
+</html>
